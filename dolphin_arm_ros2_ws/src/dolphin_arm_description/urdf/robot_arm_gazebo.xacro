@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<robot name="Robot_Arm_Urdf" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:property name="ctrl_share" value="$(find dolphin_arm_controller)"/>
+  
+  <gazebo>
+    <ros>
+      <namespace>/gazebo_ros2_control</namespace>
+    </ros>
+
+    <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+      <robot_param>robot_description</robot_param>
+      <robot_param_node>robot_state_publisher</robot_param_node>
+      <parameters>${ctrl_share}/config/robot_arm_controller.yaml</parameters>
+    </plugin>
+  </gazebo>
+
+</robot>

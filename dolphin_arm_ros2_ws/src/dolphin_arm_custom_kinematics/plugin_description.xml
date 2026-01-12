@@ -1,0 +1,9 @@
+<library path="lib/libdolphin_arm_custom_kinematics">
+  <class name="dolphin_arm_kinematics/DolphinArmIK"
+         type="dolphin_arm_kinematics::DolphinArmIK"
+         base_class_type="kinematics::KinematicsBase">
+    <description>
+      Custom IK solver for Dolphin Arm with joint2–joint3 linkage constraint.
+    </description>
+  </class>
+</library>

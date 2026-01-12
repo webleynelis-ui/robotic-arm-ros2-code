@@ -1,0 +1,190 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot name="Robot_Arm_Urdf" xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:property name="pkg_share" value="$(find dolphin_arm_description)"/>
+    <xacro:include filename="${pkg_share}/urdf/robot_arm_ros2_control.xacro"/>
+    <xacro:include filename="${pkg_share}/urdf/robot_arm_gazebo.xacro"/>
+    <xacro:Robot_Arm_Urdf/>
+    
+    <link name="base_link"/>
+    <link name="Fixed_Base">
+        <inertial>
+            <origin xyz="-0.0023084211370622484 0.0228471808858331 6.92692255730673e-05" rpy="0.0 0.0 0.0" />
+            <mass value="0.8445906258395853" />
+            <inertia ixx="0.001221182780015992" iyy="0.002203963262386244" izz="0.0013408588392549766" ixy="-6.71713136515516e-05" iyz="4.648997523226265e-07" ixz="-3.21079034325289e-06" />
+        </inertial>
+        <visual name="Fixed_Base_visual">
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="file://${pkg_share}/meshes/Fixed_Base.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="Fixed_Base_collision">
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+            <geometry>
+                <mesh filename="file://${pkg_share}/meshes/Fixed_Base.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="Rotary_Base">
+        <inertial>
+            <origin xyz="-0.0015615202986804231 -0.001328992332780706 -0.01920587720435263" rpy="0.0 -0.0 0.0" />
+            <mass value="0.7237496671944533" />
+            <inertia ixx="0.0006154232686175499" iyy="0.0005865774337070231" izz="0.0006601648629478627" ixy="2.0518610349967523e-05" iyz="-3.150402130999297e-05" ixz="2.98059870092668e-06" />
+        </inertial>
+        <visual name="Rotary_Base_visual">
+            <origin xyz="-5.610539924520725e-36 -3.029981214983867e-35 -4.440892098500626e-18" rpy="-1.5707963267948966 7.135756977348252e-17 -0.18309370107971504" />
+            <geometry>
+                <mesh filename="file://${pkg_share}/meshes/Rotary_Base.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="Rotary_Base_collision">
+            <origin xyz="-5.610539924520725e-36 -3.029981214983867e-35 -4.440892098500626e-18" rpy="-1.5707963267948966 7.135756977348252e-17 -0.18309370107971504" />
+            <geometry>
+                <mesh filename="file://${pkg_share}/meshes/Rotary_Base.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="BC_Connecting_Rod">
+        <inertial>
+            <origin xyz="-0.003108924053050823 -0.05263309481890554 0.0041842438499858905" rpy="0.0 -0.0 6.842277657836022e-49" />
+            <mass value="0.5964512737032673" />
+            <inertia ixx="0.0012764161078618083" iyy="0.00020379133939243596" izz="0.001277911473220979" ixy="5.687611563770023e-05" iyz="-4.278345856768043e-05" ixz="-5.486724258847872e-06" />
+        </inertial>
+        <visual name="BC_Connecting_Rod_visual">
+            <origin xyz="0.02371112247245582 0.007750841859894547 0.008255124743926711" rpy="-3.124568190204759 -0.18230932297418448 -0.09363604842235623" />
+            <geometry>
+                <mesh filename="file://${pkg_share}/meshes/BC_Connecting_Rod.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="BC_Connecting_Rod_collision">
+            <origin xyz="0.02371112247245582 0.007750841859894547 0.008255124743926711" rpy="-3.124568190204759 -0.18230932297418448 -0.09363604842235623" />
+            <geometry>
+                <mesh filename="file://${pkg_share}/meshes/BC_Connecting_Rod.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="CD_Connecting_Rod">
+        <inertial>
+            <origin xyz="-0.043559909338132134 -0.01570210243946864 0.002357811998792022" rpy="0.0 -0.0 -1.1025154429130312e-50" />
+            <mass value="0.38035323841887764" />
+            <inertia ixx="0.0001466140749163853" iyy="0.0011098258871812708" izz="0.001099201585227943" ixy="-8.06306855520316e-06" iyz="4.517096606287421e-06" ixz="-0.00013980161103425843" />
+        </inertial>
+        <visual name="CD_Connecting_Rod_visual">
+            <origin xyz="-0.002093835489015721 -4.437625165110148e-09 0.01130777937614194" rpy="3.115278537333742 -0.18121387124067598 0.14501660597162674" />
+            <geometry>
+                <mesh filename="file://${pkg_share}/meshes/CD_Connecting_Rod.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="CD_Connecting_Rod_collision">
+            <origin xyz="-0.002093835489015721 -4.437625165110148e-09 0.01130777937614194" rpy="3.115278537333742 -0.18121387124067598 0.14501660597162674" />
+            <geometry>
+                <mesh filename="file://${pkg_share}/meshes/CD_Connecting_Rod.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="Jaw_Bracket">
+        <inertial>
+            <origin xyz="-0.021907773199217183 0.004689907108476632 -0.005102817148829497" rpy="0.0 -0.0 0.0" />
+            <mass value="0.1350457076334148" />
+            <inertia ixx="1.9060368377022026e-05" iyy="4.042807112170435e-05" izz="4.0430870364380534e-05" ixy="-1.433287247806608e-06" iyz="2.895109639693751e-07" ixz="4.120653207107895e-06" />
+        </inertial>
+        <visual name="Jaw_Bracket_visual">
+            <origin xyz="-0.001638650783727602 2.1942422989695844e-09 -0.008849561253332782" rpy="0.03000454182392912 0.18064563548065074 0.16552462841019228" />
+            <geometry>
+                <mesh filename="file://${pkg_share}/meshes/Jaw_Bracket.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="Jaw_Bracket_collision">
+            <origin xyz="-0.001638650783727602 2.1942422989695844e-09 -0.008849561253332782" rpy="0.03000454182392912 0.18064563548065074 0.16552462841019228" />
+            <geometry>
+                <mesh filename="file://${pkg_share}/meshes/Jaw_Bracket.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="Lower_Jaw_Gear">
+        <inertial>
+            <origin xyz="-0.01994566903661017 -0.006257307106256613 -0.006546757600873647" rpy="0.0 -0.0 0.0" />
+            <mass value="0.02391751935395245" />
+            <inertia ixx="8.13583175808649e-07" iyy="8.66889429058221e-06" izz="9.12194538904218e-06" ixy="-1.7799146765003775e-06" iyz="-8.16546187335024e-08" ixz="-6.606074238085009e-07" />
+        </inertial>
+        <visual name="Lower_Jaw_Gear_visual">
+            <origin xyz="0.019451886609715016 -0.0030255381320716257 0.006136199270119747" rpy="1.5142504652606472 -0.15275332295445965 0.5392472171642942" />
+            <geometry>
+                <mesh filename="file://${pkg_share}/meshes/Lower_Jaw_Gear.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="Lower_Jaw_Gear_collision">
+            <origin xyz="0.019451886609715016 -0.0030255381320716257 0.006136199270119747" rpy="1.5142504652606472 -0.15275332295445965 0.5392472171642942" />
+            <geometry>
+                <mesh filename="file://${pkg_share}/meshes/Lower_Jaw_Gear.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+    <link name="Upper_Jaw_Gear">
+        <inertial>
+            <origin xyz="-0.017117827988133067 0.0006170620801580196 -0.006893256330983881" rpy="0.0 -0.0 0.0" />
+            <mass value="0.029521927001507683" />
+            <inertia ixx="1.0227330417347798e-06" iyy="1.085623195950613e-05" izz="1.1428807549880007e-05" ixy="-1.9300050527417568e-06" iyz="-7.631472057200849e-08" ixz="-5.122815024850975e-07" />
+        </inertial>
+        <visual name="Upper_Jaw_Gear_visual">
+            <origin xyz="0.018090653972982144 0.010336634861097488 0.007284660363346909" rpy="1.6049260695089245 -0.15922035143411778 -0.0290144888006152" />
+            <geometry>
+                <mesh filename="file://${pkg_share}/meshes/Upper_Jaw_Gear.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+        <collision name="Upper_Jaw_Gear_collision">
+            <origin xyz="0.018090653972982144 0.010336634861097488 0.007284660363346909" rpy="1.6049260695089245 -0.15922035143411778 -0.0290144888006152" />
+            <geometry>
+                <mesh filename="file://${pkg_share}/meshes/Upper_Jaw_Gear.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </collision>
+    </link>
+
+    <joint name="base_to_fixed" type="fixed">
+        <parent link="base_link"/>
+        <child  link="Fixed_Base"/>
+        <origin xyz="0 0 0" rpy="1.5707963267948966 0 0"/>
+    </joint>
+    <joint name="Fixed_Base_rot_1" type="revolute">
+        <origin xyz="0.0 0.040999999999999995 0.0" rpy="1.5707963267948966 -0.0 0.0" />
+        <parent link="Fixed_Base" />
+        <child link="Rotary_Base" />
+        <axis xyz="0.0 0.0 1.0" />
+        <limit lower="-0.6108652381980153" upper="0.6108652381980153" effort="1000000" velocity="1000000" />
+    </joint>
+    <joint name="Rotary_Base_rot_2" type="revolute">
+        <origin xyz="-0.0061911200000000005 0.00501099 -0.04300000000000001" rpy="1.5707963267948966 -4.622231866529367e-33 2.775557561562892e-17" />
+        <parent link="Rotary_Base" />
+        <child link="BC_Connecting_Rod" />
+        <axis xyz="-0.182072 -5.610526669351565e-34 0.9832849999999999" />
+        <limit lower="-1.3962634015954636" upper="0.5235988" effort="1000000" velocity="1000000" />
+    </joint>
+    <joint name="BC_Connecting_Rod_rot_3" type="revolute">
+        <origin xyz="0.0029697100000000004 -0.13499058 -0.007281" rpy="-3.6111186457260694e-34 -0.0 1.431146867680866e-17" />
+        <parent link="BC_Connecting_Rod" />
+        <child link="CD_Connecting_Rod" />
+        <axis xyz="-0.182072 2.3688342953853695e-18 0.9832849999999999" />
+        <limit lower="-0.698132" upper="0.959931" effort="1000000" velocity="1000000" />
+    </joint>
+    <joint name="CD_Connecting_Rod_rigidity_4" type="fixed">
+        <origin xyz="-0.14283212000000003 -0.0056524100000000035 -0.024413860000000013" rpy="-3.141592653589793 -2.775557561562892e-17 1.2576745200831845e-17" />
+        <parent link="CD_Connecting_Rod" />
+        <child link="Jaw_Bracket" />
+    </joint>
+    <joint name="Jaw_Bracket_rot_6" type="revolute">
+        <origin xyz="-0.017155430000000003 -0.006980299999999993 0.005210629999999998" rpy="-1.5707963267948966 -2.7755575615628926e-17 2.6020852139652106e-17" />
+        <parent link="Jaw_Bracket" />
+        <child link="Upper_Jaw_Gear" />
+        <axis xyz="-0.15937899999999997 -0.029511999999999997 0.986776" />
+        <limit lower="-0.017" upper="0.8" effort="1000000" velocity="1000000"/>
+    </joint>
+    <joint name="Jaw_Bracket_rot_9" type="revolute">
+        <origin xyz="-0.021161020000000016 -0.006980299999999993 -0.016421640000000008" rpy="-1.5707963267948966 -2.7755575615628926e-17 2.6020852139652106e-17" />
+        <parent link="Jaw_Bracket" />
+        <child link="Lower_Jaw_Gear" />
+        <axis xyz="-0.15937899999999997 -0.029511999999999997 0.986776" />
+        <mimic joint="Jaw_Bracket_rot_6" multiplier="-1.0" offset="0.0"/>
+        <limit lower="-0.8" upper="0.017" effort="1000000" velocity="1000000"/>
+    </joint>
+
+</robot>

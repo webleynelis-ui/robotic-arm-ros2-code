@@ -1,0 +1,7 @@
+# Default initial positions for Robot_Arm_Urdf's ros2_control fake system
+
+initial_positions:
+  BC_Connecting_Rod_rot_3: 0
+  Fixed_Base_rot_1: 0
+  Jaw_Bracket_rot_6: 0
+  Rotary_Base_rot_2: 0

@@ -1,0 +1,25 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: dolphin_arm_description
+    relative_path: urdf/robot_arm_moveit_urdf.urdf.xacro
+  srdf:
+    relative_path: config/Robot_Arm_Urdf.srdf
+  package_settings:
+    author_name: Junhao
+    author_email: jz496@sussex.ac.uk
+    generated_timestamp: 1760679291
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
